@@ -1,48 +1,587 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shehla Kausar | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shehla Kausar - Mathematician & Data Analyst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #3a7bd5);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ffd166;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 42, 108, 0.8), rgba(58, 123, 213, 0.8)), url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .highlight {
+            color: #ffd166;
+            font-weight: 700;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ffd166;
+            color: #1a2a6c;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #ffc145;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1a2a6c;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: #ffd166;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .profile-img {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .profile-img img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 50%;
+            border: 8px solid #3a7bd5;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 2;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1a2a6c;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-category h3 {
+            color: #1a2a6c;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skill-category h3 i {
+            color: #3a7bd5;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .skill-level {
+            color: #ffd166;
+            font-weight: 600;
+        }
+        
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-info h3 {
+            color: #1a2a6c;
+            margin-bottom: 0.8rem;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background: #1a2a6c;
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: #ffd166;
+        }
+        
+        .contact-details {
+            list-style: none;
+        }
+        
+        .contact-details li {
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-details i {
+            color: #ffd166;
+            width: 24px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a2a6c;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #ffd166;
+        }
+        
+        .copyright {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background: #1a2a6c;
+                padding: 2rem;
+                transition: left 0.3s;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Math Visualization */
+        .math-viz {
+            background: #f0f7ff;
+            padding: 3rem;
+            border-radius: 10px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .math-viz h3 {
+            color: #1a2a6c;
+            margin-bottom: 1.5rem;
+        }
+        
+        #functionCanvas {
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            margin-top: 1.5rem;
+            max-width: 100%;
+        }
+        
+        .viz-controls {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+    </style>
 </head>
 <body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Shehla Kausar</div>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <!-- HERO SECTION -->
-  <header class="hero">
-    <h1>Shehla Kausar</h1>
-    <p>Data Analyst | Business Analyst | Student</p>
-    <a href="#stats" class="btn">View My Stats</a>
-  </header>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Shehla Kausar</h1>
+            <p>A passionate <span class="highlight">Mathematician</span> and <span class="highlight">Data Analyst</span> with expertise in statistical modeling, data visualization, and mathematical problem-solving.</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+    </section>
 
-  <!-- QUICK STATS -->
-  <section class="quick-stats" id="stats">
-    <div class="stat-box">
-      <h2 class="count" data-target="25">0</h2>
-      <p>Projects Completed</p>
-    </div>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="profile-img">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80" alt="Shehla Kausar">
+                </div>
+                <div class="about-text">
+                    <h3>Mathematician & Data Analyst</h3>
+                    <p>Hello! I'm Shehla Kausar, a dedicated professional with a Master's degree in Mathematics and over 5 years of experience in data analysis. My passion lies in uncovering insights from complex data sets and applying mathematical models to solve real-world problems.</p>
+                    <p>I specialize in statistical analysis, predictive modeling, and data visualization. My work spans various industries including finance, healthcare, and technology, where I help organizations make data-driven decisions.</p>
+                    <p>When I'm not crunching numbers, I enjoy teaching mathematics to students and contributing to open-source data science projects. I believe that data, when properly analyzed, can tell powerful stories and drive meaningful change.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="stat-box">
-      <h2 class="count" data-target="15">0</h2>
-      <p>Happy Clients</p>
-    </div>
+    <!-- Skills Section -->
+    <section id="skills" style="background-color: #f5f7ff;">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-calculator"></i> Mathematics</h3>
+                    <ul class="skill-list">
+                        <li>Statistical Analysis <span class="skill-level">Expert</span></li>
+                        <li>Linear Algebra <span class="skill-level">Advanced</span></li>
+                        <li>Calculus & Optimization <span class="skill-level">Advanced</span></li>
+                        <li>Probability Theory <span class="skill-level">Expert</span></li>
+                        <li>Numerical Methods <span class="skill-level">Advanced</span></li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-bar"></i> Data Analysis</h3>
+                    <ul class="skill-list">
+                        <li>Python & R Programming <span class="skill-level">Expert</span></li>
+                        <li>Data Visualization <span class="skill-level">Expert</span></li>
+                        <li>Machine Learning <span class="skill-level">Advanced</span></li>
+                        <li>SQL & Database Management <span class="skill-level">Advanced</span></li>
+                        <li>Statistical Modeling <span class="skill-level">Expert</span></li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Python (Pandas, NumPy, SciPy) <span class="skill-level">Expert</span></li>
+                        <li>R (ggplot2, dplyr, shiny) <span class="skill-level">Advanced</span></li>
+                        <li>Tableau & Power BI <span class="skill-level">Expert</span></li>
+                        <li>Jupyter Notebooks <span class="skill-level">Expert</span></li>
+                        <li>Git & GitHub <span class="skill-level">Advanced</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="stat-box">
-      <h2 class="count" data-target="3">0</h2>
-      <p>Years Experience</p>
-    </div>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Recent Projects</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="project-info">
+                        <h3>Healthcare Predictive Analytics</h3>
+                        <p>Developed a predictive model for patient readmission rates using logistic regression and random forests, achieving 87% accuracy.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="project-info">
+                        <h3>Financial Risk Modeling</h3>
+                        <p>Created Monte Carlo simulations for financial risk assessment, helping a banking institution reduce risk exposure by 23%.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w-1350&q=80');"></div>
+                    <div class="project-info">
+                        <h3>Customer Segmentation Analysis</h3>
+                        <p>Implemented clustering algorithms (K-means, DBSCAN) to segment customers for targeted marketing campaigns, increasing conversion by 18%.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="stat-box">
-      <h2 class="count" data-target="40">0</h2>
-      <p>Data Analyses</p>
-    </div>
-  </section>
+    <!-- Mathematical Visualization -->
+    <section>
+        <div class="container">
+            <div class="math-viz">
+                <h3>Mathematical Function Visualizer</h3>
+                <p>Explore how different mathematical functions behave. This interactive tool demonstrates my passion for mathematical visualization.</p>
+                <canvas id="functionCanvas" width="800" height="400"></canvas>
+                <div class="viz-controls">
+                    <select id="functionSelect" class="btn" style="background: #1a2a6c; color: white;">
+                        <option value="sin">Sine Function</option>
+                        <option value="cos">Cosine Function</option>
+                        <option value="quadratic">Quadratic Function</option>
+                        <option value="exp">Exponential Function</option>
+                    </select>
+                    <button id="animateBtn" class="btn">Animate</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Shehla Kausar | All Rights Reserved</p>
-  </footer>
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: #f5f7ff;">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-envelope"></i> shehla.kausar@example.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (234) 567-8900</li>
+                        <li><i class="fas fa-map-marker-alt"></i> San Francisco, CA</li>
+                        <li><i class="fas fa-briefcase"></i> Available for consulting & projects</li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <h3 style="color: #1a2a6c; margin-bottom: 1.5rem;">Send a Message</h3>
+                    <form id="messageForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Subject" required>
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
-</body>
-</html>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo" style="color: white; margin-bottom: 1rem;">Shehla Kausar</div>
+            <p>Mathematician & Data Analyst</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i cl
