@@ -367,3 +367,29 @@ if (document.readyState === 'loading') {
 } else {
     initPortfolio();
 }
+// Initialize everything when DOM is loaded
+function initPortfolio() {
+    console.log('Shehla Kausar Portfolio - Initializing...');
+    
+    // Initialize all components
+    initMobileMenu();
+    initContactForm();
+    initSmoothScroll();
+    initCounterAnimation();
+    initSkillBarsAnimation();
+    initHeaderScroll();
+    initProjectCards();
+    
+    // ADD THIS LINE FOR IMMEDIATE STATS
+    document.querySelectorAll('.stat-number').forEach(el => {
+        el.textContent = el.getAttribute('data-count');
+    });
+    
+    // Add loading animation
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.8s ease';
+    
+    setTimeout(() => {
+        document.body.style.opacity = '1';
+    }, 100);
+}
