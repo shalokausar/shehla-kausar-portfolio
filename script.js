@@ -1,4 +1,4 @@
-// script.js - Shehla Kausar Portfolio with Regular Number Counting
+// script.js - Shehla Kausar Portfolio
 
 // DOM Elements
 const menuToggle = document.getElementById('menuToggle');
@@ -204,7 +204,7 @@ function showNotification(message, type = 'success') {
     }, 5000);
 }
 
-// Animated Statistics Counter - UPDATED FOR REGULAR NUMBERS
+// Animated Statistics Counter
 function initCounterAnimation() {
     if (statNumbers.length === 0) return;
     
@@ -220,7 +220,7 @@ function initCounterAnimation() {
                 element.textContent = Math.floor(current);
                 requestAnimationFrame(updateCounter);
             } else {
-                element.textContent = target; // Just show the regular number
+                element.textContent = target; // Show regular number only
             }
         };
         
@@ -333,32 +333,9 @@ function initProjectCards() {
     });
 }
 
-// Service Card Hover Effect
-function initServiceCards() {
-    const serviceCards = document.querySelectorAll('.service-card');
-    
-    serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            const icon = card.querySelector('.service-icon');
-            if (icon) {
-                icon.style.transform = 'translateY(-10px)';
-                icon.style.boxShadow = '0 15px 30px rgba(106, 13, 173, 0.3)';
-            }
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            const icon = card.querySelector('.service-icon');
-            if (icon) {
-                icon.style.transform = 'translateY(0)';
-                icon.style.boxShadow = 'none';
-            }
-        });
-    });
-}
-
 // Initialize everything when DOM is loaded
 function initPortfolio() {
-    console.log('Shehla Kausar Portfolio - Purple Theme Initializing...');
+    console.log('Shehla Kausar Portfolio - Initializing...');
     
     // Initialize all components
     initMobileMenu();
@@ -368,7 +345,6 @@ function initPortfolio() {
     initSkillBarsAnimation();
     initHeaderScroll();
     initProjectCards();
-    initServiceCards();
     
     // Add loading animation
     document.body.style.opacity = '0';
@@ -381,7 +357,7 @@ function initPortfolio() {
     // Console welcome message
     console.log('%c✨ Shehla Kausar - Data Analyst & Mathematician ✨', 
         'color: #6A0DAD; font-size: 16px; font-weight: bold;');
-    console.log('%cRegular Number Counting | Analytics Excellence | Mathematical Precision', 
+    console.log('%cPurple Theme | Regular Number Counting | Analytics Excellence', 
         'color: #8A2BE2; font-size: 14px;');
 }
 
